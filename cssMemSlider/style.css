@@ -107,6 +107,9 @@ input {
 }
 
 @media (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+  }
   .label-text-wrapper {
     flex-direction: column;
     justify-content: center;
