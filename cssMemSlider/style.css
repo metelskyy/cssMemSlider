@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 body {
-  background-color: darkgrey;
+  background-color: rgb(85, 85, 85);
 }
 .wrapper {
-  width: 70%;
+  width: 55%;
   margin: 0 auto;
   height: 100vh;
   display: flex;
@@ -23,7 +23,8 @@ body {
   display: flex;
   width: 100%;
   height: 10%;
-  margin-bottom: 5%;
+  margin-bottom: 2rem;
+  border-radius: 0.7rem;
 }
 .slide {
   width: 100%;
@@ -34,7 +35,6 @@ img {
   width: 100%;
   height: 100%;
   display: block;
-  border-radius: 1.5%;
 }
 .label-text-wrapper {
   width: 100%;
@@ -42,7 +42,7 @@ img {
   justify-content: space-between;
 }
 .slider-text {
-  width: 50%;
+  width: 20rem;
   overflow: hidden;
   display: flex;
 }
@@ -50,25 +50,35 @@ img {
   flex-shrink: 0;
   width: 100%;
   transition: all 0.5s ease;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  color: #fafafa;
 }
 input {
   position: absolute;
   visibility: hidden;
 }
 .controls {
-  width: 25%;
+  width: 10rem;
   display: flex;
   justify-content: space-between;
 }
 .label {
+  cursor: pointer;
+  flex-shrink: 1;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.control {
   width: 1rem;
   height: 1rem;
-  border-radius: 50%;
-  background-color: darkgrey;
-  cursor: pointer;
-  margin: 0 10px;
   border: 1px solid #ec0873;
+  transition: 0.5s;
+  border-radius: 50%;
+  background-color: rgb(85, 85, 85);
 }
+
 #b1:checked ~ .slider-images .slide1,
 #b1:checked ~ .label-text-wrapper .slider-text .s1 {
   margin-left: 0%;
@@ -85,9 +95,36 @@ input {
 #b4:checked ~ .label-text-wrapper .slider-text .s1 {
   margin-left: -300%;
 }
-#b1:checked ~ .label-text-wrapper .controls .l1,
-#b2:checked ~ .label-text-wrapper .controls .l2,
-#b3:checked ~ .label-text-wrapper .controls .l3,
-#b4:checked ~ .label-text-wrapper .controls .l4 {
+#b1:checked ~ .label-text-wrapper .controls .l1 .control1,
+#b2:checked ~ .label-text-wrapper .controls .l2 .control2,
+#b3:checked ~ .label-text-wrapper .controls .l3 .control3,
+#b4:checked ~ .label-text-wrapper .controls .l4 .control4 {
   background-color: #ec0873;
+}
+.label:hover .control {
+  background-color: #fafafa;
+  border: 1px solid #fafafa;
+}
+
+@media (max-width: 768px) {
+  .label-text-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .controls {
+    order: -1;
+    margin-bottom: 2rem;
+    width: 8rem;
+  }
+  .control {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  .slider-text {
+    align-self: flex-start;
+  }
+  .text-slide {
+    font-size: 1.2em;
+  }
 }
